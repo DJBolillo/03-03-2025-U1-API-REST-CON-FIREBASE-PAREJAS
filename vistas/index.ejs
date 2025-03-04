@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASKS</title>
+</head>
+
+<body>
+    <h2>Agregar Tarea</h2>
+    <form action="agregar" method="post">
+        <input type="text" name="id" placeholder="ID de la tarea">
+        <input type="text" name="title" placeholder="Tarea a crear">
+        <button type="submit">AGREGAR TAREA</button>
+
+    </form>
+    <hr>
+    <h2>Actualizar tarea</h2>
+    <form action="actualizar" method="post">
+        <input type="text" name="idActualizar" placeholder="Id de la tarea a actualizar">
+        <input type="text" name="titleActualizar" placeholder="Titulo de la tarea">
+        <button type="submit">Actualizar tarea</button>
+
+    </form>
+    <hr>
+    <h2>Borrar Tarea</h2>
+    <form action="borrar" method="post">
+        <input type="text" name="idBorrar" placeholder="Id de la tarea a borrar">
+        <button type="submit">Borrar Tarea</button>
+
+    </form>
+    <hr>
+    <h2>Lista de Tareas</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+        </tr>
+
+        <!-- Aquí es donde iteramos sobre las tareas y las mostramos en la tabla -->
+        <% if (tareas && tareas.length > 0) { %> <!-- Verificamos si hay tareas -->
+            <% tareas.forEach(function(tarea) { %>
+                <tr>
+                    <td><%= tarea.id %></td>
+                    <td><%= tarea.title %></td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td colspan="2">No hay tareas registradas.</td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+
+</html>
